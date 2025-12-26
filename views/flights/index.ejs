@@ -8,18 +8,14 @@
     <thead>
       <tr>
         <th>Airline</th>
-        <th>Airport</th>
         <th>Flight No.</th>
-        <th>Departure</th>
       </tr>
     </thead>
     <tbody>
       <% flights.forEach(flight => { %>
         <tr>
-          <td><a href="/flights/<%= flight._id%>"><%= flight.airline %></a></td>
-          <td><%= flight.airport %></td>
-          <td><%= flight.flightNo %></td>
-          <td><%= flight.departs.toLocaleDateString() %></td>
+          <td><%= flight.airline %></td>
+          <td><a href="/flights/<%= flight._id%>"><%= flight.flightNo %></a></td>
         </tr>
       <%})%>
     </tbody>
