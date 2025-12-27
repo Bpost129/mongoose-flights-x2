@@ -7,17 +7,19 @@
   <form id="edit-form" action="/flights/<%= flight._id %>?_method=PUT" method="POST">
     <label for="airline-select">Airline:</label>
     <select name="airline" id="airline-select">
-      <option value="American" selected=<%= 'American' === flight.airline %>>American</option>
-      <option value="Southwest" selected=<%= 'Southwest' === flight.airline %>>Southwest</option>
-      <option value="United" selected=<%= 'United' === flight.airline %>>United</option>
+      <option value="<%= flight.airline %>" selected><%= flight.airline %></option>
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
     </select>
     <label for="airport-select">Airport:</label>
     <select name="airport" id="airport-select">
-      <option value="AUS" selected=<%= 'AUS' === flight.airport %>>AUS</option>
-      <option value="DFW" selected=<%= 'DFW' === flight.airport %>>DFW</option>
-      <option value="DEN" selected=<%= 'DEN' === flight.airport %>>DEN</option>
-      <option value="LAX" selected=<%= 'LAX' === flight.airport %>>LAX</option>
-      <option value="SAN" selected=<%= 'SAN' === flight.airport %>>SAN</option>
+      <option value="<%= flight.airport %>" selected><%= flight.airport %></option>
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
     </select>
     <label for="flightNo-input">Flight No.:</label>
     <input type="number" name="flightNo" value="<%= flight.flightNo %>" id="flightNo-input">
