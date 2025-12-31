@@ -25,7 +25,14 @@
         <td>
           <ul>
             <% flight.tickets.forEach(ticket => { %>
-              <li><%= ticket.seat %> - $<%= ticket.price %> </li>
+              <li>
+                <%= ticket.seat %> 
+                - 
+                $<%= ticket.price %> 
+                <form action="/flights/<%= flight._id %>/tickets/<%= ticket._id %>?_method=DELETE" method="POST">
+                  <button style="height: 20px; width: 20px; text-align: top; padding: 0;">X</button>
+                </form>
+              </li>
             <% }) %>
           </ul>
         </td>
