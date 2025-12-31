@@ -13,6 +13,7 @@
         <th>Airport</th>
         <th>Flight No.</th>
         <th>Departure</th>
+        <th>Tickets</th>
       </tr>
     </thead>
     <tbody>
@@ -21,9 +22,21 @@
         <td><%= flight.airport %></td>
         <td><%= flight.flightNo %></td>
         <td><%= flight.departs.toLocaleDateString() %></td>
+        <td>
+          <% flight.tickets.forEach(ticket => { %>
+            <li><%= ticket.seat %> - <%= ticket.price %> </li>
+          <% }) %>
+        </td>
       </tr>
     </tbody>
   </table>
+  <form id="add-ticket-form" action="/flights/<%= flight._id %>/tickets" method="post">
+    <label for="seat-input">Seat:</label>
+    <input type="text" name="seat" id="seat-input" required pattern="[A-F][1-9]\d?">
+    <label for="price-input">Price:</label>
+    <input type="number" name="price" id="price-input" required>
+    <button type="submit">Add Ticket</button>
+  </form>
 </main>
 
 <%- include('../partials/footer') %>

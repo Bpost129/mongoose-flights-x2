@@ -23,10 +23,8 @@
     </select>
     <label for="flightNo-input">Flight No.:</label>
     <input type="number" name="flightNo" value="<%= flight.flightNo %>" id="flightNo-input">
-    
     <label for="departs-input">Departure Date:</label>
-    <input type="datetime" name="departs" value=<%= flight.departs.toLocaleDateString() %> id="departs-input">
-
+    <input type="datetime" name="departs" value=<%= flight.departs.toLocaleDateString() %> id="departs-input"> 
     <button type="submit">Book Flight</button>
   </form>
 </main>
