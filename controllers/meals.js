@@ -1,10 +1,25 @@
 import { Meal } from "../models/meal.js"
 
-function createMeal(req, res) {
+function newMeal(req, res) {
+  Meal.find({})
+  .then(meals => {
+    res.render('meals/new', {
+      title: 'Add Meal',
+      meals
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/flights')
+  })
+}
 
+function create(req, res) {
+  
 }
 
 export {
-  createMeal as create,
-  
+  newMeal as new,
+  create,
+
 }
