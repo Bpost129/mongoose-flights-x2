@@ -9,6 +9,15 @@
     <input type="text" name="name" id="name-input">
     <button type="submit">Add Meal</button>
   </form>
+
+  <section >
+    <h2>Meals</h2>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <% meals.forEach(meal => { %>
+        <p style="margin: 4px;"><%= meal.name %></p>
+      <% }) %>
+    </div>
+  </section>
 </main>
 
 <%- include("../partials/footer") %>
