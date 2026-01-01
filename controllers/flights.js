@@ -1,4 +1,5 @@
 import { Flight } from "../models/flight.js"
+import { Meal } from "../models/meal.js"
 
 function index(req, res) {
   Flight.find({})
@@ -34,10 +35,18 @@ function create(req, res) {
 function show(req, res) {
   Flight.findById(req.params.flightId)
   .then(flight => {
-    res.render('flights/show', {
-      title: 'Flight Details',
-      flight,
+    Meal.find({})
+    .then(meals => {
+      res.render('flights/show', {
+        title: 'Flight Details',
+        flight,
+        meals,
+      })
     })
+    .catch(err => {
+    console.log(err)
+    res.redirect('/flights')
+  })
   })
   .catch(err => {
     console.log(err)
